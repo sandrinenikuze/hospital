@@ -1,0 +1,75 @@
+ <h1>All Hospital</h1>
+<div class="row"></div>
+  <h2>Name<%= @healthcarefacility.name%></h2>
+  <h2>Location:<%=@healthcarefacility.location%></h2>
+  <h2>Phone Number:<%=@healthcarefacility.phone_number%></h2>
+  <h2>Description:<%=@healthcarefacility.description%></h2>
+  <img src="<%=@healthcarefacility.image%>">
+</div>
+<%= button_to "Edit", "/healthcarefacilities/#{@healthcarefacility.id}/edit", method: :get%>
+<%= button_to "Delete", "/healthcarefacilities/#{@healthcarefacility.id}", method: :delete %>
+<%if current_user.role_id== 1%>
+  <%= button_to "Add Physisician", "/signup", method: :get%>
+<% end %> 
+
+<tr>
+                  <td><%=current_user.records.healthcarefacility.name%></td>
+                  <td><%=current_user.records.healthcarefacility.name%></td>
+                  <td><%=current_user.records.healthcarefacility.name%></td>
+                  <td><%=current_user.records.healthcarefacility.name%></td>
+                  <td><%=current_user.records.healthcarefacility.name%></td>
+                </tr>
+
+
+                <h1>All Services</h1>
+                <table>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                  <% @services.each do|service|%>
+                    <tr>
+                      <td><%=link_to service.name, "/services/#{service.id}"%></td>
+                      <td><%=service.description%></td>
+                    </tr>
+                  <% end %>
+                </table>
+                
+
+
+                <div class="row">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Name</th>
+                          <th>Description</th>
+                          <th>Edit</th>
+
+                        </tr>
+                      </thead>
+                      <tbody id="myTable">
+                        <tr class="warning">
+                          <td><%=@services.first.id%></td>
+                          <td><%= @services.first.name%></td>
+                          <td><%= @services.first.description%></td>
+                          <td>
+                            Name: <input ng-model="sercice.name" ng-keyup="updateService(service)">
+                            Description: <input ng-model="service.description" ng-model="updateService(service)">
+                          </td>
+                        </tr>
+                        <tr>
+                         <td><%=@services.second.id%></td>
+                          <td><%= @services.second.name%></td>
+                          <td><%= @services.second.description%></td>
+                        </tr>
+                        <tr class="success">
+                          <td><%=@services.third.id%></td>
+                          <td><%= @services.third.name%></td>
+                          <td><%= @services.third.description%></td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>   
+                  </div>                

@@ -1,0 +1,86 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-md-2">
+      <div class="hospitalbox">
+        <img src="<%=@healthcarefacilities.first.images.first.url%>" class="img-responsive">
+        <div class="hospitaltitle"><strong><%= link_to @healthcarefacilities.first.name, "healthcarefacilities/#{@healthcarefacilities.first.id}"%></strong></div>
+        <address>
+          Location:<%=@healthcarefacilities.first.location%><br>
+          <abbr title="Phone">Phone Number:</abbr><%=@healthcarefacilities.first.phone_number%>
+        </address>
+
+        <address>
+          <strong>Desrciption</strong><br>
+          <p><%=@healthcarefacilities.first.description%></p>
+        </address>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="productbox">
+      <img src="<%=@healthcarefacilities.second.images.first.url%>" class="img-responsive">
+        <div class="hospitaltitle"><strong><%= link_to @healthcarefacilities.second.name, "healthcarefacilities/#{@healthcarefacilities.second.id}"%></strong></div>
+        <address>
+          Location:<%=@healthcarefacilities.second.location%><br>
+          <abbr title="Phone">Phone Number:</abbr> <%=@healthcarefacilities.second.phone_number%>
+        </address>
+
+        <address>
+          <strong>Description</strong><br>
+          <p><%=@healthcarefacilities.second.description%></p>
+        </address>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="productbox">
+      <img src="<%=@healthcarefacilities.third.images.first.url%>" class="img-responsive">
+        <div class="hospitaltitle"><strong><%= link_to @healthcarefacilities.third.name, "healthcarefacilities/#{@healthcarefacilities.third.id}"%></strong></div>
+        <address>
+          Location:<%=@healthcarefacilities.third.location%><br>
+          <abbr title="Phone">Phone Number:</abbr> <%=@healthcarefacilities.third.phone_number%>
+        </address>
+
+        <address>
+          <strong>Description</strong><br>
+          <p><%=@healthcarefacilities.third.description%></p>
+        </address>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="productbox">
+      <img src="<%=@healthcarefacilities.fourth.images.first.url%>" class="img-responsive">
+        <div class="hospitaltitle"><strong><%=link_to @healthcarefacilities.fourth.name, "healthcarefacilities/#{@healthcarefacilities.fourth.id}"%></strong></div>
+        <address>
+          Location:<%=@healthcarefacilities.fourth.location%><br>
+          <abbr title="Phone">Phone Number:</abbr> <%=@healthcarefacilities.fourth.phone_number%>
+        </address>
+
+        <address>
+          <strong>Description</strong><br>
+          <p><%=@healthcarefacilities.fourth.description%></p>
+        </address>
+      </div>
+    </div> 
+    <div class="col-md-2">
+      <div class="productbox">
+      <img src="<%=@healthcarefacilities.fifth.images.first.url%>" class="img-responsive">
+        <div class="hospitaltitle"><strong><%= link_to @healthcarefacilities.fifth.name, "healthcarefacilities/#{@healthcarefacilities.fifth.id}"%></strong></div>
+        <address>
+          Location:<%=@healthcarefacilities.fifth.location%><br>
+          <abbr title="Phone">Phone Number:</abbr> <%=@healthcarefacilities.fifth.phone_number%>
+        </address>
+
+        <address>
+          <strong>Description</strong><br>
+          <p><%=@healthcarefacilities.fifth.description%></p>
+        </address>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+<div>
+  
+<button> <%=link_to "Back to Dashboarb", "/dashboards", method: :get %></button>
+</div>
+</div>

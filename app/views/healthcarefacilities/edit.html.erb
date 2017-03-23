@@ -1,0 +1,20 @@
+<%= form_tag "/healthcarefacilities/#{@healthcarefacility.id}", method: :patch do %>
+  <div>
+    Name: <input type="text" name="name" value="<%=@healthcarefacility.name%>">
+  </div>
+  <div>
+      Location: <input type="text" name="location" value="<%=@healthcarefacility.location%>">
+  </div>
+  <div>
+      Phone Number: <input type="text" name="phone_number" value="<%=@healthcarefacility.phone_number%>">
+  </div>
+  <div>
+      Description: <input type="text" name="description" value="<%=@healthcarefacility.description%>">
+  </div>
+  <div>
+    Image: <input type="link" name="image" value="<%=@healthcarefacility.image%>">
+  </div>
+  <div>
+    <input type="submit" name="Update Hospital">
+  </div>
+<% end %>

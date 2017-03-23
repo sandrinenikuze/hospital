@@ -1,7 +1,9 @@
 class HealthcareFacility < ApplicationRecord
-  belongs_to :user
-  has_many :user, through: :records
-  has_many :services, through: :sercices_hospital
+  has_many :users, through: :records
+  has_many :records
+  has_many :services, through: :sercice_hospitals
+  has_many :service_hospitals
   belongs_to :user, optional:true
+  has_many :images
 end
 

@@ -1,0 +1,33 @@
+<%= form_tag "/records/#{@record.id}", method: :patch do %>
+  <div>
+    Country: <input type="text" name="country" value="<%=@record.country%>">
+  </div>
+  <div>
+      Province: <input type="text" name="province" value="<%=@record.province%>">
+  </div>
+  <div>
+      District: <input type="text" name="district" value="<%=@record.district%>">
+  </div>
+  <div>
+      Cell: <input type="text" name="cell" value="<%=@record.cell%>">
+  </div>
+  <div>
+    Village: <input type="link" name="village" value="<%=@record.village%>">
+  </div>
+
+  <div>
+    Symptoms: <input type="link" name="symptoms" value="<%=@record.symptoms%>">
+  </div>
+  <div>
+    Signs: <input type="link" name="signs" value="<%=@record.signs%>">
+  </div>
+  <div>
+    Laboratory Text: <input type="link" name="laboratory_text" value="<%=@record.laboratory_text%>">
+  </div>
+  <div>
+    Diagnosis: <input type="link" name="diagnosis" value="<%=@record.diagnosis%>">
+  </div>
+  <div>
+    <input type="submit" name="Update Hospital">
+  </div>
+<% end %>

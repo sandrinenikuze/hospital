@@ -1,0 +1,143 @@
+
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand"><%=current_user.name%></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Profile</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="/healthcarefacilities">Hospitals<span class="sr-only">(current)</span></a></li>
+            <li><a href="/services">Service</a></li>
+            <li><a href="/records">Records</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Welcome <%=current_user.name%></h1>
+
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img id="myImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Risks_form_smoking-smoking_can_damage_every_part_of_the_body.png/310px-Risks_form_smoking-smoking_can_damage_every_part_of_the_body.png"  data-zoom-image="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Risks_form_smoking-smoking_can_damage_every_part_of_the_body.png/310px-Risks_form_smoking-smoking_can_damage_every_part_of_the_body.png" alt="Trolltung, Norway" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <script>
+                $('#myImg').elevateZoom({
+                  zoomType        : "lens",
+                    lensShape : "round",
+                    lensSize    : 250
+                });
+               </script>
+              <div id="myModal" class="modal"  >
+                <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+                <img class="modal-content" id="img01">
+                <div id="caption"></div>
+              </div>
+              <span class="glyphicon glyphicon-alert" aria-hidden="true"> Never Smoke</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img id="image-o1" src="http://4.bp.blogspot.com/-235yu-SEJgI/VUBSohY2Q9I/AAAAAAAAAC0/rEfMXWREklY/s1600/The%2BBenefits%2Bof%2BFruits%2Band%2BVegetables%2BHigh%2Bin%2BAntioxidants.jpg" width="200" height="200" class="img-responsive" data-zoom-image="http://4.bp.blogspot.com/-235yu-SEJgI/VUBSohY2Q9I/AAAAAAAAAC0/rEfMXWREklY/s1600/The%2BBenefits%2Bof%2BFruits%2Band%2BVegetables%2BHigh%2Bin%2BAntioxidants.jpg" width="200" height="200" alt="Generic placeholder thumbnail">
+              <script>
+                $("#image-o1").elevateZoom({easing : true});
+              </script>
+              <span class="glyphicon glyphicon-alert" aria-hidden="true"> Protect your Body</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img id="image-02" src="https://cdn1.sph.harvard.edu/wp-content/uploads/sites/30/2012/09/HEPJan2015.jpg" width="200" height="200" data-zoom-image="https://cdn1.sph.harvard.edu/wp-content/uploads/sites/30/2012/09/HEPJan2015.jpg" width="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <script>
+               $("#image-02").elevateZoom({easing : true});
+              </script>
+              <span class="glyphicon glyphicon-alert" aria-hidden="true"> Eat Healthy Food</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img id="image-03" src="http://www.sikhanswers.com/wp-content/uploads/2010/04/Alcohol-and-Health.jpg" width="200" height="200" data-zoom-image="http://www.sikhanswers.com/wp-content/uploads/2010/04/Alcohol-and-Health.jpg" class="img-responsive" alt="Generic placeholder thumbnail">
+              <script>
+                $('#image-03').elevateZoom({
+                  zoomType        : "lens",
+                    lensShape : "round",
+                    lensSize    : 250
+                });
+               </script>
+              <span class="glyphicon glyphicon-alert" aria-hidden="true"> Drink Responsibly</span>
+            </div>
+          </div>
+          <div ng-app="app">
+            <div ng-controller="recordsCtrl" ng-init="setup(<%= current_user.id %>)">
+              <h2 class="sub-header">Your Records</h2>
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Country</th>
+                      <th>Province</th>
+                      <th>District</th>
+                      <th>Sector</th>
+                      <th>Cell</th>
+                      <th>Village</th>
+                      <th>Hospital</th>
+                      <th>Symptoms</th>
+                      <th>Sign</th>
+                      <th>Laboratory Texts</th>
+                      <th>Diagnosis</th>
+                      <th>Doctor Name</th>
+                    </tr>
+                  </thead>
+                  <tbody id="myTable">
+                    <tr ng-repeat="record in records">
+                      <td>{{record.country}}</td>
+                      <td>{{record.province}}</td>
+                      <td>{{record.district}}</td>
+                      <td>{{record.sector}}</td>
+                      <td>{{record.cell}}</td>
+                      <td>{{record.village}}</td>
+                      <td>{{record.healthcare_facility.name}}</td>
+                      <td>{{record.symptoms}}</td>
+                      <td>{{record.signs}}</td>
+                      <td>{{record.laboratory_text}}</td>
+                      <td>{{record.diagnosis}}</td>
+                    </tr>
+                  </tbody>
+                </table> <br>
+               <!--  <div>
+                  <strong><h4>Add Record</h4></strong>
+                  Country: <input ng-model="recordCountry">
+                  Province: <input ng-model="recordProvince">
+                  District: <input ng-model="recordDistrict">
+                  Sector: <input ng-model="recordSector">
+                  Cell: <input ng-model="recordCell">
+                  Village: <input ng-model="recordVillage">
+                  Hospital: <input ng-model="recordHospital">
+                  Symptoms: <input ng-model="recordSymptoms">
+                  Sign: <input ng-model="recordSign">
+                  Laboratory Text: <input ng-model="recordLaboratorytext">
+                  Diagnosis: <input ng-model="recordDiagnosis">
+
+                  <button ng-click="addRecord(recordCountry, recordProvince, recordDistrict, recordSector, recordCell, recordVillage, recordHospital, recordSymptoms, recordSign,recordLaboratorytext, recordDiagnosis)">Submit Record</button>
+                </div> -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    

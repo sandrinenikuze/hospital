@@ -11,7 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.elevatezoom
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require turbolinks
+//= require angular.min
+//= require app
 //= require_tree .

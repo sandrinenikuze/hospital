@@ -1,0 +1,19 @@
+<h1>New Hospital</h1>
+<%=form_tag "/healthcarefacilities", method: :post do %>
+
+  <div>
+    Hospital Name: <input type="text" name ="name">
+  </div>
+  <div>
+    Location: <input type="text" name="location">
+  </div>
+  <div>
+    Description: <input type="text" name="description">
+  </div>
+  <div>
+    Image: <input type="text" name="image">
+  </div>
+  <div>
+    <input type="submit" name="create hospital">
+  </div>
+<% end %>

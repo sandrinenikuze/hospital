@@ -1,0 +1,6 @@
+<h1>Service</h1>
+<div class="row"></div>
+<h2>Name:<%=@service.name%></h2>
+<h2>Description:<%=@service.description%></h2>
+<%= button_to "Edit", "/services/#{@service.id}/edit", method: :get%>
+<%= button_to "Delete", "/services/#{@service.id}", method: :delete %>

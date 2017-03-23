@@ -1,0 +1,16 @@
+
+<h2>General Information</h2>
+<% @records.each do|record| %>
+  <p>Country:<%=record.country%> Province:<%=record.province%>  District: <%=record.district%>  Cell: <%=record.cell%>  Village: <%=record.village%></p>
+  <h2>Medical Information</h2>
+  <p>Hospital:<%=@records.first.healthcare_facility.name%></p>
+  <p>Symptoms: <%=record.symptoms%></p>
+  <p>Signs: <%=record.signs%></p>
+  <p>Laboratory Texts: <%=record.laboratory_text%></p>
+  <p>Diagnosis: <%=record.diagnosis%></p>
+  <h2>Prescription Information</h2>
+<% end %>
+
+<div>
+<button> <%=link_to "Back to Dashboarb", "/dashboards", method: :get %></button>
+</div>

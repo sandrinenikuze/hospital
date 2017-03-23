@@ -10,19 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222143959) do
+ActiveRecord::Schema.define(version: 20170315074037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "assignments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_assignments_on_role_id", using: :btree
+    t.index ["user_id"], name: "index_assignments_on_user_id", using: :btree
+  end
+
   create_table "healthcare_facilities", force: :cascade do |t|
     t.string   "name"
     t.string   "location"
-    t.string   "image"
     t.string   "phone_number"
     t.string   "description"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "user_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string   "url"
+    t.integer  "healthcare_facility_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "records", force: :cascade do |t|
@@ -41,6 +57,13 @@ ActiveRecord::Schema.define(version: 20170222143959) do
     t.string   "time"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.text     "prescription"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "service_hospitals", force: :cascade do |t|
@@ -61,9 +84,11 @@ ActiveRecord::Schema.define(version: 20170222143959) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.boolean  "admin"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "role_id"
   end
 
+  add_foreign_key "assignments", "roles"
+  add_foreign_key "assignments", "users"
 end
