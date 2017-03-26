@@ -41,24 +41,31 @@
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
 
-            <p class="hospital-location">Location:<%=@healthcarefacility.location%></p>
-            <p class="hospital-address">Phone Number:<%=@healthcarefacility.phone_number%></p>
-            <p class="hospital-description"><%=@healthcarefacility.description%></p>
-            <div>
-              <strong>Services</strong> <br>
-               <%@healthcarefacility.service_hospitals.each do|service_hospital|%>
-                <p><strong><%=service_hospital.service.name%></strong>:<%=service_hospital.service.description%></p> 
-              <% end %> 
-              
+                <p class="hospital-location">Location:<%=@healthcarefacility.location%></p>
+                <p class="hospital-address">Phone Number:<%=@healthcarefacility.phone_number%></p>
+                <p class="hospital-description"><%=@healthcarefacility.description%></p>
+                <div>
+                  <strong>Services</strong> <br>
+                   <%@healthcarefacility.service_hospitals.each do|service_hospital|%>
+                    <p><strong><%=service_hospital.service.name%></strong>:<%=service_hospital.service.description%></p> 
+                  <% end %> 
+                </div>
+                <div>
+                <%= button_to "Back to Hosptials", "/healthcarefacilities", method: :get %> <br>
+                <%= button_to "Edit", "/healthcarefacilities/#{@healthcarefacility.id}/edit", method: :get%> <br>
+                <%= button_to "Delete", "/healthcarefacilities/#{@healthcarefacility.id}", method: :delete %>
+                  
+                </div>
+              </div>
             </div>
-
-            </div>
-            
           </div>
-        </div>
+                  
       </div>
     </div>
   </div>
   </body>
 </html>
+              
+
+            
     

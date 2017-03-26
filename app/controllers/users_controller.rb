@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  def show
+    @user = User.find(params[:id])
+  end 
   def new
     @roles = Role.all
     user = User.new
@@ -7,21 +10,20 @@ class UsersController < ApplicationController
   end 
 
   def create
-    if current_user.role_id == 1
-      user = User.new(
-     name: params[:name],
-     email: params[:email],
-     role_id: 3,
-     password: params[:password],
-     password_confirmation: params[:password_confirmation])
-    else
+    # if current_user.role_id == 1
+    #   user = User.new(
+    #  name: params[:name],
+    #  email: params[:email],
+    #  role_id: 3,
+    #  password: params[:password],
+    #  password_confirmation: params[:password_confirmation])
+    # else
     user = User.new(
       name: params[:name],
       email: params[:email],
       role_id: 2,
       password: params[:password],
       password_confirmation: params[:password_confirmation])
-    end 
       
     if user.save
       session[:user_id] = user.id

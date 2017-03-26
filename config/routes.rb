@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete '/healthcarefacilities/:id', to: "healthcarefacilities#destroy"
 
   get'/signup', to: "users#new"
+  get '/users/:id', to: "users#show"
   post'/users', to: "users#create"
 
   get "/login", to: 'sessions#new'

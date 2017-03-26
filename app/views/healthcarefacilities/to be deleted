@@ -72,4 +72,19 @@
                         
                       </tbody>
                     </table>   
-                  </div>                
+                  </div>   
+
+
+
+# user new for sign up
+<!--  <#% if current_user.role_id == 1%>
+   <div>
+     <label>Role</label>
+     <select name ="role_id">
+        <option value="" disable selected></option>
+        <#% @roles.each do|role|%>
+        <option value="<%= role.id%>"><#%= role.name%></option>
+        <#% end %>
+     </select>
+   </div>
+ <#% end %> -->                               
