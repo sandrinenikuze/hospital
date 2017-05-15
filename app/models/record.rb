@@ -1,4 +1,5 @@
 class Record < ApplicationRecord
   belongs_to :user
-  belongs_to :healthcare_facility
+  has_many :healthcare_facilities, through: :hospital_records 
+  has_many :hosptical_records
 end

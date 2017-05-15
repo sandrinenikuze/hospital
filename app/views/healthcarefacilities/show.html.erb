@@ -50,12 +50,13 @@
                     <p><strong><%=service_hospital.service.name%></strong>:<%=service_hospital.service.description%></p> 
                   <% end %> 
                 </div>
-                <div>
-                <%= button_to "Back to Hosptials", "/healthcarefacilities", method: :get %> <br>
-                <%= button_to "Edit", "/healthcarefacilities/#{@healthcarefacility.id}/edit", method: :get%> <br>
-                <%= button_to "Delete", "/healthcarefacilities/#{@healthcarefacility.id}", method: :delete %>
-                  
-                </div>
+                <% if current_user.role.name == "physician"%>
+                  <div>
+                  <%= button_to "Back to Hosptials", "/healthcarefacilities", method: :get %> <br>
+                  <%= button_to "Edit", "/healthcarefacilities/#{@healthcarefacility.id}/edit", method: :get%> <br>
+                  <%= button_to "Delete", "/healthcarefacilities/#{@healthcarefacility.id}", method: :delete %>
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>

@@ -2,14 +2,12 @@
 <%=form_tag "/records", method: :post do %>
 <h1>General Information</h1>
   <div>
-    <p> Country: <input type="text" name ="country"> Province: <input type="text" name="province"> District: <input type="text" name="district"> District: <input type="text" name="district"> Village: <input type="text" name="village"></p>
-  </div>
-  <h2>Medical Information</h2>
-   <div>
-    Hospital: <input type="number" name="hospital">
-  </div> <br>
-   <div>
-   <p> Symptoms: <input type="text" name="symptoms"> Signs: <input type="text" name="signs"> Laboratory Texts: <input type="text" name="laboratory_text"> Diagnosis: <input type="text" name="diagnosis"></p>
+    <p> 
+    Weigh: <input type="number" name ="weight"> 
+    Height: <input type="text" name="height"> 
+    Family Medical History: <input type="text" name="family_medical_history">
+    Symptoms: <input type="text" name="symptoms"> 
+    Blood Type:<input type="text" name="blood_type"></p>
   </div>
   <div>
     <input type="submit" name="create records">

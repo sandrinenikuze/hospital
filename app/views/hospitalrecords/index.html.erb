@@ -1,0 +1,102 @@
+<% if current_user.role.name == "physician"%>
+<body style="background-color:#ccefff;">
+  
+  <div id="wrapper" class="active" style="background-color: #ccefff;">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+       
+        <div class="navbar-default sidebar" role="navigation">                  
+            <div class="sidebar-nav">
+                <ul class="nav" id="nice-menu">
+                    <li class="sidebar-brand">
+                        <div class="ttdiv">
+                            <span class="ttspan-fill">SaNiCARE</span>
+                            <span class="ttspan-right"><i class="fa fa-align-justify"></i></span>
+                        </div>
+                    </li>
+                </ul>                        
+                <ul class="nav" id="side-menu">   
+                    <!-- <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control ttspan-fill" placeholder="Search...">
+                            <span class="input-group-btn ttspan-fill">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                        
+                    </li>  -->                         
+                    <li>
+                        <a href="/users"><i class="fa fa-dashboard fa-fw"></i> <span class="ttspan-fill">Patients list</span></a>
+                    </li>
+                    <li>
+                        <a href="hospitalrecords"><i class="fa fa-table fa-fw"></i> <span class="ttspan-fill">New Record</span></a>
+                    </li>                             
+                    <li>
+                        <a href="/hospitalrecords/hospital_record_index"><i class="fa fa-edit fa-fw"></i><span class="ttspan-fill">All Hospital Records</span></a>
+                    </li>                                                                              
+                </ul>
+            </div>
+        </div>                             
+    </nav>  
+
+    <div id="page-wrapper" style="background-color:#99ddff;">
+      <div class="row">
+          <div class="col-lg-8">
+              <h1 class="page-header">New Patient Record</h1>
+          </div>
+          <!-- /.col-lg-12 -->
+      </div>
+      <!-- /.row -->
+      <%= form_tag "/hospitalrecords", method: :post do %>
+        <h3>General Information</h3>
+        <div>
+          <p>  Country:<input type="text" name ="country"> Province: <input type="text" name="province"> District: <input type="text" name="district"></p> <br>
+          <p>Sector: <input type="text" name="sector"> Cell: <input type="text" name="cell">Village: <input type="text" name="village"></p>
+        </div>
+        <h3>Medical Information</h3>
+         <div>
+          Hospital: 
+          <select name="healthcare_facility_id">
+           <option value="" disabled selected> Please Select</option>
+            <% @healthcarefacilities.each do|hospital|%>
+                <option value= "<%= hospital.id %>">
+                  <%= hospital.name %>
+                </option>        
+            <%end %>
+          </select> 
+          Patient Name: 
+            <select name="user_id">
+             <option value="" disabled selected> Please Select</option>
+              <% @users.each do|user|%>
+                <%if user.role.name == "patient"%>
+                  <option value= "<%= user.id %>">
+                    <%= user.name %>
+                  </option>
+                <% end %>         
+              <%end %>
+            </select> 
+            
+        </div> <br>
+         <div>
+         <p> Symptoms: <input type="text" name="symptoms"> Signs: <input type="text" name="signs"> Laboratory Texts: <input type="text" name="laboratory_text"></p> <br>
+         <p>Diagnosis: <input type="text" name="diagnosis"> Prescription: <input type="text" name="prescription"></p>
+        </div>
+        <div>
+          <input type="submit" name="create records">
+        </div>
+      <%end%>
+    </div>
+      <!-- /.row -->
+  </div>         
+<% end %>
+
+</body>

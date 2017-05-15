@@ -9,7 +9,11 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id 
       flash[:success] = 'You are now logged in!'
-      redirect_to '/dashboards'
+      if user.role_id == 2
+        redirect_to '/dashboards'
+      else
+        redirect_to '/hospitalrecords'
+      end 
     else
       flash[:warning] = 'Invalid email or password'
       redirect_to '/login'

@@ -87,4 +87,191 @@
         <#% end %>
      </select>
    </div>
- <#% end %> -->                               
+ <#% end %> -->     
+
+ #Hospital Records
+ Patient Name: <select name="user_id">
+               <option value="" disabled selected>
+                 </option>
+                 <% @users.each do|user|%>
+                   <option value= "<% if user.role_id == 2%>
+                                     <%=user.name%>
+                                   <% end %>">
+                   </option>
+                 <%end %>
+                   
+             </select>                          
+
+
+#Dashboard
+
+<link rel="stylesheet" href="http://mogulsdemo.com/html/pride-home/css/font-awesome.css">
+
+<div class="jain_container">
+
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container1 container-fluid"> 
+      <div class="navbar-header">
+      <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <i class="icon-menu"></i> Menu
+      </button> -->
+      <a class="navbar-brand" href="#"> <img src="../../images/logo.png" /></a>
+      <div class="col-lg-12">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <div class="col-md-12">
+            <ul class="nav navbar-nav">
+              <li class="dropdown mega-dropdown">
+                <a href="/healthcarefacilities" class="dropdown-toggle" data-toggle="dropdown">FIND HOSPITAL <span class="caret"></span></a>  
+                <ul class="dropdown-menu mega-dropdown-menu">
+                  <li class="col-sm-4">
+                    <ul>
+                      <li class="dropdown-header">Hospitals</li>
+                      <li><a href="/healthcarefacilities/<%=@healthcarefacilities.first.id%>">King Faisal</a></li>
+                      <li><a href="/healthcarefacilities/<%=@healthcarefacilities.second.id%>">Military Hospital</a></li>
+                      <li><a href="/healthcarefacilities/<%=@healthcarefacilities.third.id%>">"University Teaching Hospital(CHUK)"</a></li>
+                      <li><a href="/healthcarefacilities/<%=@healthcarefacilities.fourth.id%>">Kibagabaga Hospital</a></li>
+                      <!-- <li class="divider"></li>
+                      <li class="dropdown-header">Fonts</li>
+                                    <li><a href="#">Glyphicon</a></li>
+                      <li><a href="#">Google Fonts</a></li> -->
+                    </ul>
+                  </li>
+                  <li class="col-sm-4">
+                    <ul>
+                      <li class="dropdown-header">Hospitals</li>
+                      <li><a href="/healthcarefacilities/<%=@healthcarefacilities.fifth.id%>">Hopital La Croix du Sud</a></li>
+                      <li><a href="#">Nyiranuma</a></li>
+                      <li><a href="#">Rusizana</a></li>                            
+                      <li><a href="#">Agarwal's Eye Hospital</a></li>              
+                    </ul>
+                  </li>
+                  <li class="col-sm-4">
+                    <ul>
+                      <li class="dropdown-header">More Hospitals</li>
+                      <li><a href="#">African Healthcare Networks</a></li>
+                      <li><a href="#">Rwanda Women's Network</a></li>
+                      <li><a href="#">Ligacy Clinics</a></li>
+                      <li><a href="#">Kacyiru District Hospital</a></li>                         
+                    </ul>
+                  </li>
+                </ul>       
+              </li>
+              <li><a href="/services">SPECIAL CARE</a></li><li>
+              <a href="/records">HOSPITAL RECORDS</a></li><li>
+              <li>
+              <a href="/users/<%=current_user.id%>">PROFILE</a>
+              </li>
+            </ul>
+          </div>
+          <!-- <div class="col-md-12">
+             <form class="form-horizontal form-horizontal_x">
+              <div class="col-md-12">
+                  <div class="form-group">
+                  </div>
+                </div>
+            </form>
+          </div> -->
+        </div>
+      </div>
+      <!-- <div class="col-md-2 medias">
+        <ul> 
+          <li> <a href="https://www.facebook.com/nikuze.sandrine"> <i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+          <li> <a href="https://mail.google.com/mail/ca/u/0/#inbox"> <i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+        </ul>
+        <div class="classus">
+          <p> Call us +(250) 789 270 167</p>
+        </div>
+      </div> -->
+    </div>
+  </nav>
+  <div class="banner_home">
+    
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+     <!--    <li data-target="#myCarousel" data-slide-to="3"></li> -->
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="http://www.investors.com/wp-content/uploads/ibd-migrated-images/Biz04-hospital-0924-iStock.jpg" alt="pride Hotel banner" width:450 px/>
+      <div class="carousel-caption">
+         <div class="tagline">
+          <h3>It is not too late
+
+      <hr/>
+      <span>stay Healthy </span>
+      </h3>
+      <div class="new_years">
+      <div class="new_years_inner">
+      <h4> Your Happiness is a Reflection of Your Health</h4>
+      <!--   <a href="">  Grab it now >></a> -->
+      </div>
+      </div>
+      </div>
+        </div>
+      
+      
+        </div>
+
+        <div class="item">
+            <img src="https://www.centerforhealthjournalism.org/files/title_images/ROH%20Electronic%20Health%20Records%20Essay%20Photo.jpg" alt="pride Hotel banner"/>
+      <div class="carousel-caption">
+         <div class="tagline">
+          <h3>Start today!
+
+      <hr/>
+      <span>stay in touch with your provider </span>
+      </h3>
+      <div class="new_years">
+      <div class="new_years_inner">
+      <h4> It is Health that is real Wealth</h4>
+   <!--      <a href="">  Grab it now >></a> -->
+      </div>
+      </div>
+      </div>
+        </div>
+      
+      
+        </div>
+      
+        <div class="item">
+            <img src="http://israelvalley.s3-eu-west-1.amazonaws.com/files/000/013/240/original/dreamstime_s_41351405.jpg?1441032802" alt="pride Hotel banner"/>
+       <div class="carousel-caption">
+         <div class="tagline">
+          <h3>Lead your Health
+
+      <hr/>
+      <span>Make A DECISION</span>
+      </h3>
+      <div class="new_years">
+      <div class="new_years_inner">
+      <h4> Take care of your body. It's the only place you have to live in.</h4>
+        <a href="">  Grab it now >></a>
+      </div>
+      </div>
+      </div>
+        </div>
+        </div>
+
+      
+      </div>
+
+      <!-- Left and right controls -->
+    <!--   <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a> -->
+    </div>
+  </div>
+</div>
+</div>              

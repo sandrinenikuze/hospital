@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315074037) do
+ActiveRecord::Schema.define(version: 20170326234915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,25 @@ ActiveRecord::Schema.define(version: 20170315074037) do
     t.integer  "user_id"
   end
 
+  create_table "hospital_records", force: :cascade do |t|
+    t.integer  "record_id"
+    t.integer  "healthcare_facility_id"
+    t.string   "country"
+    t.string   "province"
+    t.string   "district"
+    t.string   "sector"
+    t.string   "cell"
+    t.string   "village"
+    t.text     "symptoms"
+    t.text     "signs"
+    t.string   "diagnosis"
+    t.text     "laboratory_text"
+    t.text     "prescription"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "user_id"
+  end
+
   create_table "images", force: :cascade do |t|
     t.string   "url"
     t.integer  "healthcare_facility_id"
@@ -43,21 +62,13 @@ ActiveRecord::Schema.define(version: 20170315074037) do
 
   create_table "records", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "healthcare_facility_id"
     t.text     "symptoms"
-    t.text     "signs"
-    t.string   "diagnosis"
-    t.text     "laboratory_text"
-    t.string   "country"
-    t.string   "province"
-    t.string   "district"
-    t.string   "sector"
-    t.string   "cell"
-    t.string   "village"
-    t.string   "time"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.text     "prescription"
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.decimal  "height",                 precision: 3, scale: 2
+    t.decimal  "weight",                 precision: 5, scale: 2
+    t.string   "blood_type"
+    t.text     "family_medical_history"
   end
 
   create_table "roles", force: :cascade do |t|

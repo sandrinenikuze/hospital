@@ -1,14 +1,14 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :null_session
+  
   
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id] 
   end 
   def physician
-    @physician = Role.find(3)
+    @physician = Role.find_by(id:3).user
   end
   def admin 
-    @admin = Role.find(2)
+    @admin = Role.find_by(id:1).user
   end
     
   helper_method :current_user

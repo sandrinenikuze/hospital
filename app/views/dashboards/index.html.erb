@@ -1,6 +1,81 @@
+<section class="mbr-slider mbr-section mbr-section--no-padding carousel slide" data-ride="carousel" data-wrap="true" data-interval="5000" id="slider-5" style="background-color: #4c6972;">
+  <div class="mbr-section__container">
+        <div>
+            <ol class="carousel-indicators">
+                <li data-app-prevent-settings="" data-target="#slider-5" data-slide-to="0" class="active"></li><li data-app-prevent-settings="" data-target="#slider-5" data-slide-to="1"></li><li data-app-prevent-settings="" data-target="#slider-5" class="" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--bg-adapted item dark center mbr-section--full-height active" style="background-image: url(http://www.investors.com/wp-content/uploads/ibd-migrated-images/Biz04-hospital-0924-iStock.jpg);">
+                    <div class="mbr-box__magnet mbr-box__magnet--center-right mbr-box__magnet--sm-padding">
+                                            
+                        <div class=" container">
+                            
+                            <div class="row">
+                                <div class=" col-md-6 col-md-offset-5">  
+
+                                <div class="mbr-hero">
+                                    <h1 class="mbr-hero__text">Your Happiness is a Reflection of Your Health</h1>
+
+                                    <p class="mbr-hero__subtext">stay Healthy </p>
+                                </div>
+                                <div class="mbr-buttons btn-inverse mbr-buttons--left mbr-buttons--right"><a class="mbr-buttons__btn btn btn-lg btn-danger" href="https://www.youtube.com/watch?v=GN1BzbcTIzE">Component of Balanced Diet</a> <a class="mbr-buttons__btn btn btn-lg btn-default" href="https://www.youtube.com/watch?v=VUyEPf-IvdM">Top Ten Healthiest Food</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--bg-adapted item dark center mbr-section--full-height" style="background-image: url(https://www.centerforhealthjournalism.org/files/title_images/ROH%20Electronic%20Health%20Records%20Essay%20Photo.jpg);">
+                    <div class="mbr-box__magnet mbr-box__magnet--center-center mbr-box__magnet--sm-padding">
+                                            
+                        <div class=" container">
+                            
+                            <div class="row">
+                                <div class=" col-md-8 col-md-offset-2">  
+
+                                <div class="mbr-hero">
+                                    <h1 class="mbr-hero__text">It is Health that is real Wealth</h1>
+
+                                    <p class="mbr-hero__subtext">stay in touch with your provider</p>
+                                </div>
+                                <div class="mbr-buttons btn-inverse mbr-buttons--center"><a class="mbr-buttons__btn btn btn-lg btn-danger" href="https://www.youtube.com/watch?v=lW6hwmdZbmE">Smoking Effects</a> <a class="mbr-buttons__btn btn btn-lg btn-default" href="https://www.youtube.com/watch?v=0TL2Vh7goJc">Quick Smoking Advice</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--bg-adapted item dark center mbr-section--full-height" style="background-image: url(http://israelvalley.s3-eu-west-1.amazonaws.com/files/000/013/240/original/dreamstime_s_41351405.jpg?1441032802);">
+                    <div class="mbr-box__magnet mbr-box__magnet--center-left mbr-box__magnet--sm-padding">
+                                            
+                        <div class=" container">
+                            
+                            <div class="row">
+                                <div class=" col-md-6 col-md-offset-1">  
+
+                                <div class="mbr-hero">
+                                    <h1 class="mbr-hero__text">Take care of your body. It's the only place you have to live in.</h1>
+
+                                    <p class="mbr-hero__subtext">Lead your Health </p>
+                                </div>
+                                <div class="mbr-buttons btn-inverse mbr-buttons--left"><a class="mbr-buttons__btn btn btn-lg btn-danger" href="https://www.youtube.com/watch?v=SFBBjynBpSw">Why Exercise?</a> <a class="mbr-buttons__btn btn btn-lg btn-default" href="https://www.youtube.com/watch?v=q20pLhdoEoY">Sample Exercise for Beginners</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <a data-app-prevent-settings="" class="left carousel-control" role="button" data-slide="prev" href="#slider-5">
+                <span aria-hidden="true"><</span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a data-app-prevent-settings="" class="right carousel-control" role="button" data-slide="next" href="#slider-5">
+                <span aria-hidden="true">></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</section>
 
 
-    <!-- <nav class="navbar navbar-inverse navbar-fixed-top">
+<!-- <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -21,6 +96,7 @@
         </div>
       </div>
     </nav> -->
+<% if current_user.role.name == "patient"%>
 
     <div class="container-fluid">
       <div class="row">
@@ -28,7 +104,8 @@
           <ul class="nav nav-sidebar">
             <li class="active"><a href="/healthcarefacilities">Hospitals<span class="sr-only">(current)</span></a></li>
             <li><a href="/services">Service</a></li>
-            <li><a href="/records">Records</a></li>
+            <li><a href="/records">Hospital Records</a></li>
+            <li><a href="/records/new">New Record</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -84,33 +161,19 @@
                 <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th>Country</th>
-                      <th>Province</th>
-                      <th>District</th>
-                      <th>Sector</th>
-                      <th>Cell</th>
-                      <th>Village</th>
-                      <th>Hospital</th>
+                      <th>Date</th>
+                      <th>Height</th>
+                      <th>Weight</th>
+                      <th>Family Medical History</th>
                       <th>Symptoms</th>
-                      <th>Sign</th>
-                      <th>Laboratory Texts</th>
-                      <th>Diagnosis</th>
-                      <th>Doctor Name</th>
                     </tr>
                   </thead>
                   <tbody id="myTable">
                     <tr ng-repeat="record in records">
-                      <td>{{record.country}}</td>
-                      <td>{{record.province}}</td>
-                      <td>{{record.district}}</td>
-                      <td>{{record.sector}}</td>
-                      <td>{{record.cell}}</td>
-                      <td>{{record.village}}</td>
-                      <td>{{record.healthcare_facility.name}}</td>
-                      <td>{{record.symptoms}}</td>
-                      <td>{{record.signs}}</td>
-                      <td>{{record.laboratory_text}}</td>
-                      <td>{{record.diagnosis}}</td>
+                      <td>{{record.created_at}}</td>
+                      <td>{{record.height}}</td>
+                      <td>{{record.weight}}</td>
+                      <td>{{record.family_medical_history}}</td>
                     </tr>
                   </tbody>
                 </table> <br>
@@ -137,7 +200,31 @@
         </div>
       </div>
     </div>
+<%end %>
 
 
 
     
+                      
+
+                                 
+
+
+
+
+
+          
+          
+
+
+
+
+
+
+
+
+     
+   
+
+
+

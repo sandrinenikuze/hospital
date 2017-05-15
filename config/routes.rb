@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   patch '/healthcarefacilities/:id', to: "healthcarefacilities#update"
   delete '/healthcarefacilities/:id', to: "healthcarefacilities#destroy"
 
+  get 'users', to: "users#index"
   get'/signup', to: "users#new"
   get '/users/:id', to: "users#show"
   post'/users', to: "users#create"
@@ -32,6 +33,14 @@ Rails.application.routes.draw do
   patch '/records/:id', to: "records#update"
 
   get 'dashboards', to: "dashboards#index"
+
+  get '/hospitalrecords', to: "hospitalrecords#index"
+  get '/hospitalrecords/hospital_record_index', to: "hospitalrecords#hospital_record_index"
+  get '/hospitalrecords/new', to: "hospitalrecords#new"
+  get '/hospitalrecords/:id', to: "hospitalrecords#show"
+  post '/hospitalrecords', to: "hospitalrecords#create"
+  get '/hospitalrecords/:id/edit', to: "hospitalrecords#edit"
+  patch '/hospitalrecords/:id', to: "hospitalrecords#update"
 
   namespace :api do 
     namespace :v1 do

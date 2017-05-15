@@ -10,7 +10,7 @@ class Api::V1::RecordsController < ApplicationController
    @record = Record.find_by(id:params[:id])
   end 
   def create
-   record = Record.create(user_id: params[:user_id], healthcare_facility_id: params[:healthcare_facility_id], symptoms: params[:symptoms], signs: params[:signs], diagnosis: params[:diagnosis], laboratory_text: params[:laboratory_text], country: params[:country],province: params[:province],sector: params[:sector],cell: params[:cell],village: params[:village],time: params[:time])
+   record = Record.create(user_id: params[:user_id], symptoms: params[:symptoms], height: params[:height], weight: params[:weight], family_medical_history: params[:family_medical_history])
    flash[:success] = "Record has been created"
    redirect_to "/records"
   end 

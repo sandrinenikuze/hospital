@@ -1,14 +1,59 @@
 
-<h2>General Information</h2>
-<% @records.each do|record| %>
-  <p>Country:<%=record.country%> Province:<%=record.province%>  District: <%=record.district%>  Cell: <%=record.cell%>  Village: <%=record.village%></p>
-  <h2>Medical Information</h2>
-  <p>Hospital:<%=@records.first.healthcare_facility.name%></p>
+<h1>Hospital Records</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="talbe-responsive col-lg-12">
+      <table class="table table-bordered">
+        <thead>
+
+          <tr>
+            <th>Date</th>
+            <th>Hospital</th>
+            <th>Country</th>
+            <th>Province</th>
+            <th>District</th>
+            <th>Sector</th>
+            <th>Cell</th>
+            <th>Village</th>
+            <th>Symptoms</th>
+            <th>Signs</th>
+            <th>Laboratory text</th>
+            <th>Diagnosis</th>
+            <th>Prescription</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%=current_user.hospital_record.created_at%></td>
+            <td><%=current_user.hospital_record.healthcare_facility.name%></td>
+            <td><%=current_user.hospital_record.country%></td>
+            <td><%=current_user.hospital_record.province%></td>
+            <td><%=current_user.hospital_record.district%></td>
+            <td><%=current_user.hospital_record.sector%></td>
+            <td><%=current_user.hospital_record.cell%></td>
+            <td><%=current_user.hospital_record.village%></td>
+            <td><%=current_user.hospital_record.symptoms%></td>
+            <td><%=current_user.hospital_record.signs%></td>
+            <td><%=current_user.hospital_record.laboratory_text%></td>
+            <td><%=current_user.hospital_record.diagnosis%></td>
+            <td><%=current_user.hospital_record.prescription%></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+          
+  
+  
+  
+  
+<% %>
+<%@records.each do|record| %>
+  <h2><%= current_user.name%></h2>
   <p>Symptoms: <%=record.symptoms%></p>
-  <p>Signs: <%=record.signs%></p>
-  <p>Laboratory Texts: <%=record.laboratory_text%></p>
-  <p>Diagnosis: <%=record.diagnosis%></p>
-  <h2>Prescription Information</h2>
+  <p>Height: <%=record.height%></p>
+  <p>Weight: <%=record.weight%></p>
 <% end %>
 
 <div>

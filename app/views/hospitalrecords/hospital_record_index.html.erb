@@ -1,0 +1,103 @@
+<div class="col-md-12">
+<div class="alert alert-info">
+  <center><h1>All Patients</h1></center></div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-success" style="display:none;">
+          <span class="glyphicon glyphicon-ok"></span> Drag table row and cange Order</div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>
+                  Patient Name
+                </th>
+                <th>
+                  Hospital
+                </th>
+                <th>
+                  Country
+                </th>
+                <th>
+                  Province
+                </th>
+                <th>
+                  District
+                </th>
+                <th>
+                  Sector
+                </th>
+                <th>
+                  Cell
+                </th>
+                <th>
+                  Village
+                </th>
+                <th>
+                  Symptoms
+                </th>
+                <th>
+                  Signs
+                </th>
+                <th>
+                  Laboratory Text
+                </th>
+                <th>
+                  Diagnosis
+                </th>
+                <th>
+                  Prescription
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="active">
+                <% @hospitalrecords.each do|record|%>
+                <td>
+                 <%= record.user.name%>
+                </td>
+                <td>
+                  <%= record.healthcare_facility.name%>
+                </td>
+                <td class="info">
+                  <%= record.country%> 
+                </td>
+                <td>
+                  <%= record.province%>
+                </td>
+                <td>
+                  <%= record.district%>
+                </td>
+                <td>
+                  <%= record.sector%>
+                </td>
+                <td>
+                 <%= record.cell%>
+                </td>
+                <td>
+                  <%= record.village%>
+                </td>
+                <td>
+                  <%= record.symptoms%>
+                </td>
+                <td>
+                  <%= record.signs%>
+                </td>
+                <td>
+                  <%= record.laboratory_text%>
+                </td>
+                <td>
+                  <%= record.diagnosis%>
+                </td>
+                <td class="success">
+                  <%= record.prescription%>
+                </td>
+                </tr>
+              <%end%>
+            </tbody>
+          </table>
+        </div>
+      </div>
+</div>

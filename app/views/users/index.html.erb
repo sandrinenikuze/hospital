@@ -1,0 +1,99 @@
+<body style="background-color: #ccefff">
+</body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="alert alert-success" style="display:none;">
+        <span class="glyphicon glyphicon-ok"></span> Drag table row and cange Order</div>
+          <table border="1">       <!-- <table class="table">
+          <thead> -->
+            <tr>
+              <td>
+                Patient Name
+              </td>
+              <td colspan="6">
+                Records
+              </td>
+                <!-- <th>
+                  Symptoms
+                </th>
+                <th>
+                  Weight
+                </th>
+                <th>
+                  Height
+                </th>
+                <th>
+                  Blood Type
+                </th>
+                <th>
+                  Family Medical History
+                </th> -->
+              </tr>
+        <!--   </thead>
+          <tbody> -->
+              <% if current_user.role.name =="physician"||"admin"%>
+                <% @users.each do |user|%>
+                  <% if user.role_id == 2%>
+                    <% @users.records.each do|record|%>
+                    <tr class="active">
+                      <td rowspan="8">
+                        <%= user.name%>
+                      </td>
+                       <!--  <td>  -->
+                            <!-- <tr>  -->
+                        <td>
+                          Date
+                        </td>
+                        <td>
+                          Symptoms
+                        </td>
+                        <td>
+                          Weight
+                        </td>
+                        <td>
+                          Height
+                        </td>
+                        <td>
+                          Blood type
+                        </td>
+                        <td>
+                          Family Record
+                        </td>
+                      </tr>
+
+                      <% user.records.each do|record|%>
+                        <tr>
+                          <td>
+                            <%= record.created_at%>
+                          </td>
+                          <td>
+                            <%= record.symptoms%>
+                          </td>
+                          <td>
+                            <%= record.weight%>
+                          </td>
+                          <td>
+                            <%= record.height%>
+                          </td>
+                          <td>
+                            <%= record.blood_type%>
+                          </td>
+                          <td>
+                            <%= record.family_medical_history%>
+                          </td>
+                        </tr>
+                        
+                      <%end%>
+                    <%end%>
+                  <% end %>
+                <%end%> 
+              <%end %>
+         <!--    </tr> -->
+          <!-- </tbody> -->
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
